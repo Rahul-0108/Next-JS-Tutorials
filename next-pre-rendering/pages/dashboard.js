@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-function Dashboard() {
+function Dashboard() { // api calls inside component will be executed in browser only
   const [isLoading, setIsLoading] = useState(true)
   const [dashboardData, setDashboardData] = useState(null)
   useEffect(() => {

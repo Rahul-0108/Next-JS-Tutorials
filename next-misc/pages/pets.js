@@ -1,5 +1,5 @@
 import Image from 'next/image'
-
+// Image is downloaded from browser after page load
 function PetsPage() {
   return (
     <div>

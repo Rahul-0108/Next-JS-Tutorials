@@ -1,4 +1,5 @@
-import '../styles/globals.css'
+import '../styles/globals.css' // import global css file
+// to make style appicable in each component
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { ThemeProvider } from 'styled-components'
 

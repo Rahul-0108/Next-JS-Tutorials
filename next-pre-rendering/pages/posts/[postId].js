@@ -1,12 +1,14 @@
 import { useRouter } from 'next/router'
-
+// since its for dynamic route, at build time html and json is generated for
+// 1st 3 data only(getStaticPaths) and served to client and after that
+// for other paramaeters requests like /5 , /8  html and json is generated at runtime 
+// and served to client
 function Post({ post }) {
   const router = useRouter()
 
-  if (router.isFallback) {
+  if (router.isFallback) { // if html page is not present this is a fallback
     return <div>Loading...</div>
   }
-
   return (
     <>
       <h2>
@@ -16,9 +18,7 @@ function Post({ post }) {
     </>
   )
 }
-
 export default Post
-
 export async function getStaticProps(context) {
   const { params } = context
   const response = await fetch(
@@ -28,7 +28,8 @@ export async function getStaticProps(context) {
 
   if (!data.id) {
     return {
-      notFound: true
+      notFound: true // for fallbackt:true 
+      // rendering wil render 404 page if data is not found
     }
   }
 
@@ -40,15 +41,8 @@ export async function getStaticProps(context) {
   }
 }
 
+// indicating to generate 3 htmls at build time. This is required for dynamic paths
 export async function getStaticPaths() {
-  // const response = await fetch('https://jsonplaceholder.typicode.com/posts')
-  // const data = await response.json()
-  // const paths = data.map(post => {
-  //   return {
-  //     params: { postId: `${post.id}` }
-  //   }
-  // })
-
   return {
     paths: [
       { params: { postId: '1' } },

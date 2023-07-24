@@ -8,6 +8,7 @@ function MyApp({ Component, pageProps }) {
   if (Component.getLayout) {
     return Component.getLayout(<Component {...pageProps} />)
   }
+  /* Head: Adds title and meta info to html file */
   return (
     <>
       <Head>

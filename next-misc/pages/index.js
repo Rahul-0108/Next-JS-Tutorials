@@ -3,6 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
+  /* Head: Adds title and meta info to html file */
   return (
     <div className={styles.container}>
       <Head>

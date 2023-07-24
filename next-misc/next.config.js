@@ -4,7 +4,7 @@ module.exports = {
       {
         source: '/about',
         destination: '/',
-        permanent: false
+        permanent: false /* redirect is temporary or permanent */
       }
     ]
   }
